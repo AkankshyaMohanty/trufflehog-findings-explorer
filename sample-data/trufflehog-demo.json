@@ -1,0 +1,33 @@
+[
+  {
+    "DetectorName": "AWS",
+    "Verified": true,
+    "Redacted": "AKIA****************",
+    "Raw": "AKIAEXAMPLE123456",
+    "SourceMetadata": {
+      "Data": {
+        "Git": {
+          "repository": "demo-backup-service",
+          "file": ".env",
+          "branch": "main",
+          "commit": "a1b2c3d",
+          "timestamp": "2026-08-15T08:10:00Z"
+        }
+      }
+    }
+  },
+  {
+    "DetectorName": "HubSpotApiKey",
+    "Verified": false,
+    "Redacted": "5a4cc20b-72ab-4d61-88d2-5b34a4a77e3b",
+    "Raw": "5a4cc20b-72ab-4d61-88d2-5b34a4a77e3b",
+    "SourceMetadata": {
+      "Data": {
+        "CloudWatch": {
+          "logGroup": "/aws/lambda/demo-worker",
+          "logStream": "2026/08/15/[$LATEST]sample"
+        }
+      }
+    }
+  }
+]
