@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/types.ts","./src/components/FindingDrawer.tsx","./src/components/Icon.tsx","./src/components/MetricCard.tsx","./src/components/ScanComparison.tsx","./src/data/comparisonExamples.ts","./src/data/mockFindings.ts","./src/hooks/useLocalStorage.ts","./src/lib/comparison.ts","./src/lib/normalizer.ts"],"errors":true,"version":"5.8.3"}

@@ -76,3 +76,31 @@ export interface Filters {
   detector: "All" | string;
   repo: "All" | string;
 }
+
+export type ComparisonStatus = "New" | "Resolved" | "Recurring" | "Regressed";
+
+export interface ComparedFinding {
+  key: string;
+  status: ComparisonStatus;
+  baseline?: Finding;
+  current?: Finding;
+  detector: string;
+  repo: string;
+  file: string;
+  severity: Severity;
+  verified: boolean;
+  occurrences: number;
+  explanation: string;
+}
+
+export interface ComparisonResult {
+  items: ComparedFinding[];
+  summary: {
+    baseline: number;
+    current: number;
+    new: number;
+    resolved: number;
+    recurring: number;
+    regressed: number;
+  };
+}

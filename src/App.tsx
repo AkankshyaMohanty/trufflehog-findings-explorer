@@ -2,7 +2,9 @@ import { useMemo, useState } from "react";
 import FindingDrawer from "./components/FindingDrawer";
 import Icon from "./components/Icon";
 import MetricCard from "./components/MetricCard";
+import ScanComparison from "./components/ScanComparison";
 import { mockFindings } from "./data/mockFindings";
+import { comparisonBaseline, comparisonCurrent } from "./data/comparisonExamples";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { normalizeFindings, parseTruffleHogInput } from "./lib/normalizer";
 import type {
@@ -61,6 +63,7 @@ export default function App() {
   });
   const [selected, setSelected] = useState<Finding | null>(null);
   const [importError, setImportError] = useState("");
+  const [view, setView] = useState<"triage" | "compare">("triage");
 
   const findings = useMemo(
     () => normalizeFindings(rawData, triage),
@@ -292,6 +295,38 @@ export default function App() {
           </div>
         </section>
 
+        <section className="mt-6 flex w-fit rounded-2xl border border-slate-200 bg-white p-1 shadow-sm">
+          <button
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+              view === "triage"
+                ? "bg-slate-950 text-white"
+                : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+            }`}
+            onClick={() => setView("triage")}
+          >
+            Findings triage
+          </button>
+          <button
+            className={`rounded-xl px-4 py-2 text-sm font-semibold transition ${
+              view === "compare"
+                ? "bg-slate-950 text-white"
+                : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+            }`}
+            onClick={() => setView("compare")}
+          >
+            Compare scans
+          </button>
+        </section>
+
+        {view === "compare" ? (
+          <section className="mt-6">
+            <ScanComparison
+              initialBaseline={comparisonBaseline}
+              initialCurrent={comparisonCurrent}
+            />
+          </section>
+        ) : (
+          <>
         {importError && (
           <div className="mt-5 rounded-2xl border border-red-100 bg-red-50 p-4 text-sm font-medium text-red-700">
             {importError}
@@ -493,6 +528,9 @@ export default function App() {
             )}
           </div>
         </section>
+
+          </>
+        )}
 
         <section className="mt-6 rounded-3xl border border-blue-100 bg-blue-50 p-5">
           <div className="flex gap-3">

@@ -1,0 +1,53 @@
+[
+  {
+    "DetectorName": "AWS",
+    "Verified": true,
+    "Redacted": "AKIA****************",
+    "Raw": "AKIAREGRESSION123",
+    "SourceMetadata": {
+      "Data": {
+        "Git": {
+          "repository": "demo-backup-service",
+          "file": ".env",
+          "branch": "main",
+          "commit": "444dddd",
+          "timestamp": "2026-08-16T08:00:00Z"
+        }
+      }
+    }
+  },
+  {
+    "DetectorName": "Slack",
+    "Verified": false,
+    "Redacted": "xoxb-****************",
+    "Raw": "xoxb-recurring-example",
+    "SourceMetadata": {
+      "Data": {
+        "Git": {
+          "repository": "notification-service",
+          "file": "config/default.json",
+          "branch": "develop",
+          "commit": "555eeee",
+          "timestamp": "2026-08-16T08:05:00Z"
+        }
+      }
+    }
+  },
+  {
+    "DetectorName": "GCP",
+    "Verified": false,
+    "Redacted": "{ \"type\": \"service_account\", ... }",
+    "Raw": "service-account-new-example",
+    "SourceMetadata": {
+      "Data": {
+        "Git": {
+          "repository": "data-pipeline",
+          "file": "service-account.json",
+          "branch": "main",
+          "commit": "666ffff",
+          "timestamp": "2026-08-16T08:10:00Z"
+        }
+      }
+    }
+  }
+]

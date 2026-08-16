@@ -134,3 +134,34 @@ context.
 - Trend charts across multiple scans
 - Compare two scan reports
 - Unit tests for normalization and deduplication
+
+
+## Scan comparison
+
+The **Compare scans** view accepts a baseline and current TruffleHog report and
+classifies normalized findings as:
+
+- **New** — only present in the current scan
+- **Resolved** — present in the baseline but absent from the current scan
+- **Recurring** — present in both scans without a worse verification/severity state
+- **Regressed** — recurring finding that became verified or moved to a higher severity
+
+Sanitized comparison examples are included:
+
+```text
+sample-data/comparison-baseline.json
+sample-data/comparison-current.json
+```
+
+The comparison uses a normalized identity based on detector, secret fingerprint,
+and repository/source. Raw secret values are not displayed in the comparison UI.
+
+### v0.2.0 additions
+
+- Baseline/current scan imports
+- New/resolved/recurring/regressed classification
+- Regression detection
+- Comparison summary metrics
+- Search and status filtering
+- Baseline vs current state cards
+- JSON diff export
